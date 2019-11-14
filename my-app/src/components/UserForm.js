@@ -3,7 +3,7 @@ import { withFormik, Form, Field } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
 
-const Form = ({ errors, touched, values, status }) => {
+const UserForm = ({ errors, touched, values, status }) => {
 	const [ userName, setUserName ] = useState([]);
 
 	useEffect(
@@ -70,6 +70,6 @@ const FormikUserForm = withFormik({
 			})
 			.catch((error) => console.log(error.res));
 	}
-})(Form);
+})(UserForm);
 
 export default FormikUserForm;
