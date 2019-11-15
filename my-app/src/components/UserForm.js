@@ -13,16 +13,16 @@ const UserForm = ({ errors, touched, values, status }) => {
 	);
 
 	return (
-		<div>
+		<div className="Hero">
 			<h1>USER ONBOARDING</h1>
-			<Form>
-				<Field type="text" name="user" placeholder="Username" />
+			<Form className="form__1">
+				<Field className="field" type="text" name="user" placeholder="Username" />
 				{touched.user && errors.user && <p className="Error">{errors.user}</p>}
 
-				<Field type="text" name="email" placeholder="Email" />
+				<Field className="field" type="text" name="email" placeholder="Email" />
 				{touched.email && errors.email && <p className="Error">{errors.email}</p>}
 
-				<Field type="text" name="password" placeholder="Password" />
+				<Field className="field" type="text" name="password" placeholder="Password" />
 				{touched.password && errors.password && <p className="Error">{errors.password}</p>}
 
 				<label>
@@ -33,11 +33,13 @@ const UserForm = ({ errors, touched, values, status }) => {
 				<button type="submit">Submit</button>
 			</Form>
 			{userName.map((id) => (
-				<ul key={userName.Id}>
-					<li>Username: {id.user}</li>
-					<li>Email: {id.email}</li>
-					<li>Password: {id.password}</li>
-				</ul>
+				<div className="UserCard">
+					<ul className="list" key={userName.Id}>
+						<li>Username: {id.user}</li>
+						<li>Email: {id.email}</li>
+						<li>Password: {id.password}</li>
+					</ul>
+				</div>
 			))}
 		</div>
 	);
@@ -57,8 +59,7 @@ const FormikUserForm = withFormik({
 		user: Yup.string().required(),
 		email: Yup.string().required(),
 		password: Yup.string().required(),
-		terms: Yup.string().required(),
-		options: Yup.string().notOneOf([ "Choose an option" ]).required("Please select one")
+		terms: Yup.string().required()
 	}),
 
 	handleSubmit(values, { setStatus }) {
@@ -66,7 +67,7 @@ const FormikUserForm = withFormik({
 			.post("https://reqres.in/api/users/", values)
 			.then((res) => {
 				setStatus(res.data);
-				console.log(res.data);
+				console.log(res);
 			})
 			.catch((error) => console.log(error.res));
 	}

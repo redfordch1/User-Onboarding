@@ -1,22 +1,50 @@
-.App {
-  text-align: center;
+body {
+	background-color: navajowhite;
 }
 
-.App-logo {
-  height: 40vmin;
+h1 {
+	text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.form__1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.App-link {
-  color: #09d3ac;
+.field {
+	border-radius: 10px;
+	margin: 20px;
+	height: 50px;
+	width: 400px;
+	font-size: 20px;
+	padding: 5px;
+}
+
+.list {
+	list-style-type: none;
+	border: 2px solid grey;
+	width: 500px;
+	height: 100px;
+	margin: 20px auto;
+	padding: 10px 10px 10px 30px;
+	background-color: white;
+	line-height: 1.7;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+button {
+	width: 120px;
+	height: 35px;
+	margin: 20px;
+	font-size: 15px;
+	border-radius: 5px;
+	background-color: teal;
+	color: white;
+}
+
+button:hover {
+	background-color: white;
+	color: black;
 }
