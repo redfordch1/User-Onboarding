@@ -5,10 +5,9 @@ import * as Yup from "yup";
 
 const UserForm = ({ errors, touched, values, status }) => {
 	const [ userName, setUserName ] = useState([]);
-
 	useEffect(
 		() => {
-			status && setUserName((userName) => [ ...userName, status ]);
+			status && setUserName((user) => [ ...user, status ]);
 		},
 		[ status ]
 	);
@@ -27,17 +26,18 @@ const UserForm = ({ errors, touched, values, status }) => {
 				{touched.password && errors.password && <p className="Error">{errors.password}</p>}
 
 				<label>
-					<Field as="checkbox" name="terms" checked={values.terms} />
+					Accept Terms and Conditions
+					<Field type="checkbox" name="terms" checked={values.terms} />
 				</label>
 
 				<button type="submit">Submit</button>
 			</Form>
-
 			{userName.map((id) => (
-				<div key={userName.Id}>
-					<p>Username: {id.user}</p>
-					<p>Username: {id.email}</p>
-				</div>
+				<ul key={userName.Id}>
+					<li>Username: {id.user}</li>
+					<li>Email: {id.email}</li>
+					<li>Password: {id.password}</li>
+				</ul>
 			))}
 		</div>
 	);
@@ -66,7 +66,7 @@ const FormikUserForm = withFormik({
 			.post("https://reqres.in/api/users/", values)
 			.then((res) => {
 				setStatus(res.data);
-				console.log(res);
+				console.log(res.data);
 			})
 			.catch((error) => console.log(error.res));
 	}
