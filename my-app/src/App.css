@@ -1,0 +1,50 @@
+body {
+	background-color: navajowhite;
+}
+
+h1 {
+	text-align: center;
+}
+
+.form__1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.field {
+	border-radius: 10px;
+	margin: 20px;
+	height: 50px;
+	width: 400px;
+	font-size: 20px;
+	padding: 5px;
+}
+
+.list {
+	list-style-type: none;
+	border: 2px solid grey;
+	width: 500px;
+	height: 100px;
+	margin: 20px auto;
+	padding: 10px 10px 10px 30px;
+	background-color: white;
+	line-height: 1.7;
+	border-radius: 10px;
+	font-size: 20px;
+}
+
+button {
+	width: 120px;
+	height: 35px;
+	margin: 20px;
+	font-size: 15px;
+	border-radius: 5px;
+	background-color: teal;
+	color: white;
+}
+
+button:hover {
+	background-color: white;
+	color: black;
+}
